@@ -52,24 +52,29 @@ public class ArrayOps {
     }
 
     public static boolean containsTheSameElements(int [] array1,int [] array2) {
-        int conter =0;
-        int shorter =Math.min(array1.length,array2.length);
-        int leger =Math.max(array1.length,array2.length);
-        for (int i = 0; i < leger; i++) {
+        int counter = 0;
+        int shorter = Math.min(array1.length, array2.length);
+        int longer = Math.max(array1.length, array2.length);
+    
+        for (int i = 0; i < longer; i++) {
             for (int j = 0; j < shorter; j++) {
-                if (array1 [j] == array2[i]) {
-                    conter++; 
-                }
-                if(conter==shorter){
-                    return true;
+                if (array1.length > array2.length) {
+                    if (i < array2.length && array1[i] == array2[j]) {
+                        counter++;
+                        break; // Break to avoid counting the same element multiple times
+                    }
+                } else {
+                    if (i < array1.length && array2[i] == array1[j]) {
+                        counter++;
+                        break; // Break to avoid counting the same element multiple times
+                    }
                 }
             }
         }
-            if(conter >= leger){
-                return true;
-        }
-        return false;
-}
+    
+        return counter == shorter;
+    }
+
 
     public static boolean isSorted(int [] array) {
         boolean isRising = true;
