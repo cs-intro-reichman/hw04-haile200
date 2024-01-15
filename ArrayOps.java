@@ -1,10 +1,10 @@
 public class ArrayOps {
     public static void main(String[] args) {
         int [] array =   {7, 5, 4, 3, -12};
-        int [] array1 = {1,1,5};
-        int [] array2 =  {2, 1};
+        int [] array1 =  {0,1,2,3,4,6};
+        int [] array2 = {2,3,1};
         int [] array3 ={6,9,4,7,3,4};
-        System.out.println(isSorted(array));
+        System.out.println(findMissingInt(array1));
         System.out.println(isSorted(array1));
         
     }
@@ -18,6 +18,9 @@ public class ArrayOps {
         }
         if(array.length==1 && array[0]==0){
             return 1;
+        }
+        if(array[0] < array[1] && array[0]> array[2] ){
+            return 0;
         }
         return finder;
     }
@@ -47,29 +50,26 @@ public class ArrayOps {
         }
         return secondMax;
     }
-        public static boolean containsTheSameElements(int[] array1, int[] array2) {
-            int counter = 0;
-            int shorter = Math.min(array1.length, array2.length);
-            int longer = Math.max(array1.length, array2.length);
-        
-            for (int i = 0; i < longer; i++) {
-                for (int j = 0; j < shorter; j++) {
-                    if (array1.length > array2.length) {
-                        if (array1[i] == array2[j]) {
-                            counter++;
-                            break; // Break to avoid counting the same element multiple times
-                        }
-                    } else {
-                        if (array2[i] == array1[j]) {
-                            counter++;
-                            break; // Break to avoid counting the same element multiple times
-                        }
-                    }
+
+    public static boolean containsTheSameElements(int [] array1,int [] array2) {
+        int conter =0;
+        int shorter =Math.min(array1.length,array2.length);
+        int leger =Math.max(array1.length,array2.length);
+        for (int i = 0; i < leger; i++) {
+            for (int j = 0; j < shorter; j++) {
+                if (array1 [j] == array2[i]) {
+                    conter++; 
+                }
+                if(conter==shorter){
+                    return true;
                 }
             }
-        
-            return counter == shorter;
         }
+            if(conter >= leger){
+                return true;
+        }
+        return false;
+}
 
     public static boolean isSorted(int [] array) {
         boolean isRising = true;
