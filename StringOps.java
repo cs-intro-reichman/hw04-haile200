@@ -25,12 +25,12 @@ public class StringOps {
     //////        in Recitation 3 question 5             ///////
     //////                                               ///////
     ////////////////////////////////////////////////////////////
-    public static void main(String[] args) {;
-        System.out.println(capVowelsLowRest("One two tHRee world"));
-        System.out.println(capVowelsLowRest(  "vowels are fun"));
-        System.out.println(capVowelsLowRest("intro"));
-        System.out.println(capVowelsLowRest("yellow"));
-        System.out.println(capVowelsLowRest("Hello WOrld"));
+    public static void main(String[] args) {
+        System.out.println(Makescapitalletters("sCIEncE "));
+        System.out.println(camelCase(  " Intro to coMPUter sCIEncE "));
+        System.out.println(ifTheFirstCap(  "Hello"));
+        //System.out.println(camelCase("world"));
+    //    System.out.println(capVowelsLowRest("Hello WOrld"));
 
 
 
@@ -45,10 +45,10 @@ public class StringOps {
              if  (currentChar==' ' || "AEIOU".indexOf(currentChar)!=-1 ) { // אם האות הראשונה גדולה וגרונית אז זה נשאר
                 ans+=currentChar;
             }
-             else if (currentChar==' ' && currentChar+1< 'a' ||  currentChar+1< 'a'){
+             else if (currentChar==' ' && currentChar+1< 'a' ||  currentChar+1< 'a'){  // מקטין אותיות 
                 ans+=(char) (currentChar + 32);
                 flip =false;
-            } else if ("aeiou".indexOf(currentChar) != -1) {
+            } else if ("aeiou".indexOf(currentChar) != -1) {  // הופך אותיות גרוניות לגדלות 
                 ans += (char) (currentChar - 32);
                 flip =false;
             }else if (currentChar==' ') {
@@ -62,12 +62,68 @@ public class StringOps {
 }
 
     public static String camelCase (String string) {
-        // Write your code here:
-        return "";
-    }
+            String ans = "";
+            boolean flip = true;
+            int i = 0;
+            int conter = 0;
+        
+            while (i < string.length()) {
+                int firstSpace = string.indexOf(' ', i);
+                String helpr;
+                if (firstSpace == -1) {
+                    helpr = string.substring(i);
+                } else {
+                    helpr = string.substring(i, firstSpace);
+                }
+                conter++;
+                for (int j = 0; j < helpr.length(); j++) {
+                    flip =ifTheFirstCap(helpr);
+                    boolean yep =true;
+                    char currentChar = helpr.charAt(j);
+                    if ((flip && currentChar <'a') || firstSpace==-1){  // דואג למילה הראשונה
+                        ans+=(char) (currentChar+32);
+                        flip =false;
+                } else if (!flip) {
+                    helpr=Makescapitalletters(helpr);
+                    ans+=helpr;
+                    break;
+
+                } else if (yep){
+                        ans+=currentChar;
+                        yep =false;
+                    }    
+                    }
+            
+                i += helpr.length() + 1;
+            }
+        
+            return ans;
+        }
 
     public static int[] allIndexOf (String string, char chr) {
         // Write your code here:
         return new int[1];
     }
+
+
+    public static String Makescapitalletters(String string){
+        String ans="";
+        boolean flip= true;
+            for (int j = 0; j < string.length(); j++) {
+                flip= true;
+                char currentChar = string.charAt(j);
+                if(((currentChar >= 'a' && currentChar <= 'z') ) && j==0){
+                    ans+=((char) (currentChar - 32));
+                }else if(currentChar >= 'A' && currentChar <= 'Z') {
+                    ans += (char) (currentChar + 32);
+                }else if (flip) {
+                    ans+=currentChar;
+                }
+            }
+    return ans;
+}
+
+static public boolean ifTheFirstCap(String ans){
+    return (  ans.charAt(0) < 'a');
+}
 }
