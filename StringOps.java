@@ -26,10 +26,9 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        System.out.println(Makescapitalletters("sCIEncE "));
+        System.out.println(camelCase("HELLO world"));
         System.out.println(camelCase(  " Intro to coMPUter sCIEncE "));
-        System.out.println(ifTheFirstCap(  "Hello"));
-        //System.out.println(camelCase("world"));
+        System.out.println(camelCase("world"));
     //    System.out.println(capVowelsLowRest("Hello WOrld"));
 
 
@@ -80,7 +79,7 @@ public class StringOps {
                     flip =ifTheFirstCap(helpr);
                     boolean yep =true;
                     char currentChar = helpr.charAt(j);
-                    if ((flip && currentChar <'a') || firstSpace==-1){  // דואג למילה הראשונה
+                    if ((flip && currentChar <'a')){  // דואג למילה הראשונה
                         ans+=(char) (currentChar+32);
                         flip =false;
                 } else if (!flip) {
