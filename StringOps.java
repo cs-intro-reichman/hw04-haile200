@@ -106,21 +106,30 @@ public class StringOps {
 
 
     public static String Makescapitalletters(String string){
-        String ans="";
-        boolean flip= true;
+            String ans = "";
+            boolean flip = true;
+        
             for (int j = 0; j < string.length(); j++) {
-                flip= true;
+                flip = true;
                 char currentChar = string.charAt(j);
-                if(currentChar >= 'A' && currentChar <= 'Z') {
-                    ans += (char) (currentChar + 32);
-                }
-                else if(((currentChar >= 'a' && currentChar <= 'z') ) && j==0){
+        
+                if (currentChar >= 'A' && currentChar <= 'Z' && j!=0 ) {
+                    ans+=((char) (currentChar + 32));
+                    flip = false;
+                } else if (currentChar >= 'a' && currentChar <= 'z') {
+                    if (j == 0) {
                         ans+=((char) (currentChar - 32));
-                }else if (flip) {
-                    ans+=currentChar;
+                        flip = false;
+                    } else {
+                        ans+=(currentChar);
+                    }
+                } else if (flip) {
+                    ans+=(currentChar);
                 }
             }
-    return ans;
+        
+            return ans;
+        
 }
 
 static public boolean ifTheFirstCap(String ans){
