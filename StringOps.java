@@ -25,12 +25,14 @@ public class StringOps {
     //////        in Recitation 3 question 5             ///////
     //////                                               ///////
     ////////////////////////////////////////////////////////////
-    public static void main(String[] args) {
-        System.out.println(capVowelsLowRest("Hello World"));
+    public static void main(String[] args) {;
         System.out.println(capVowelsLowRest("One two tHRee world"));
         System.out.println(capVowelsLowRest(  "vowels are fun"));
         System.out.println(capVowelsLowRest("intro"));
         System.out.println(capVowelsLowRest("yellow"));
+        System.out.println(capVowelsLowRest("Hello WOrld"));
+
+
 
         
     }
@@ -40,7 +42,7 @@ public class StringOps {
         for (int i = 0; i < string.length(); i++) {
              char currentChar = string.charAt(i);
              boolean flip =true;
-            if (currentChar==' ' || "AEIOU".indexOf(string.charAt(0))!=-1 ) {
+             if  (currentChar==' ' || "AEIOU".indexOf(currentChar)!=-1 ) { // אם האות הראשונה גדולה וגרונית אז זה נשאר
                 ans+=currentChar;
             }
              else if (currentChar==' ' && currentChar+1< 'a' ||  currentChar+1< 'a'){
