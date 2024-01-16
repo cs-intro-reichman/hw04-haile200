@@ -1,3 +1,7 @@
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 public class StringOps {
     ////////////////////////////////////////////////////////////
     //////                                               ///////
@@ -22,13 +26,33 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
+        System.out.println(capVowelsLowRest("vowels are fun"));
         
     }
 
     public static String capVowelsLowRest (String string) {
-        // Write your code here:
-        return "";
+        String ans ="";
+        for (int i = 0; i < string.length(); i++) {
+             char currentChar = string.charAt(i);
+             boolean flip =true;
+            if (currentChar==' ') {
+                ans+=currentChar;
+            }
+             else if (currentChar==' ' && currentChar+1< 'a' ||  currentChar+1< 'a'){
+                ans+=(char) (currentChar + 32);
+                flip =false;
+            } else if (currentChar == 'a' || currentChar == 'e' || currentChar == 'i' || currentChar == 'o' || currentChar == 'u') {
+                ans += (char) (currentChar - 32);
+                flip =false;
+            }else if (currentChar==' ') {
+                ans+=currentChar;
+                flip =false;
+            } else if (flip ){
+            ans+=currentChar;
+        }
     }
+    return ans;
+}
 
     public static String camelCase (String string) {
         // Write your code here:
