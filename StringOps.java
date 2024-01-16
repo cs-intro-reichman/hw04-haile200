@@ -26,11 +26,10 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        System.out.println(camelCase(" tWo    wordS"));
         System.out.println(camelCase("Hello World"));
         System.out.println(camelCase(  " Intro to coMPUter sCIEncE "));
         System.out.println(camelCase("world"));
-            System.out.println(allIndexOf ("Hello world",'l'));
+            System.out.println(camelCase ( " tWo    wordS"));
         for (int i = 0; i < args.length; i++) {
             
         }
@@ -66,9 +65,7 @@ public class StringOps {
 
     public static String camelCase (String string) {
             String ans = "";
-            boolean flip = true;
             int i = 0;
-            int conter = 0;
         
             while (i < string.length()) {
                 int firstSpace = string.indexOf(' ', i);
@@ -78,29 +75,19 @@ public class StringOps {
                 } else {
                     helper = string.substring(i, firstSpace);
                 }
-                conter++;
                 for (int j = 0; j < helper.length(); j++) {
-                    flip =ifTheFirstCap(helper);
                     boolean yep =true;
-                    char currentChar = helper.charAt(j);
-                    if ((yep && currentChar <'a')){  // דואג למילה הראשונה
-                        ans+=(char) (currentChar+32);
-                        yep=false;
-                } else if (!flip && i>1) {
+                if (yep) {
                     helper=Makescapitalletters(helper);
                     ans+=helper;
                     break;
-
-                } else if (yep){
-                        ans+=currentChar;
-                        yep =false;
-                    }    
+                } 
                     }
             
                 i += helper.length() + 1;
             }
         
-            return ans;
+            return ans =dontMakeCapletters(ans);
         }
 
     public static int[] allIndexOf (String string, char chr) {
@@ -124,10 +111,11 @@ public class StringOps {
             for (int j = 0; j < string.length(); j++) {
                 flip= true;
                 char currentChar = string.charAt(j);
-                if(((currentChar >= 'a' && currentChar <= 'z') ) && j==0){
-                    ans+=((char) (currentChar - 32));
-                }else if(currentChar >= 'A' && currentChar <= 'Z') {
+                if(currentChar >= 'A' && currentChar <= 'Z') {
                     ans += (char) (currentChar + 32);
+                }
+                else if(((currentChar >= 'a' && currentChar <= 'z') ) && j==0){
+                        ans+=((char) (currentChar - 32));
                 }else if (flip) {
                     ans+=currentChar;
                 }
@@ -147,5 +135,18 @@ static public int counterChar(String ans,char letters){
         }
     }
     return counter;
+}
+
+public static String dontMakeCapletters(String string){
+    String ans="";
+    for (int i = 0; i < string.length(); i++) {
+    if (string.charAt(0)>= 'A' && string.charAt(0) <= 'Z' && i==0){
+        ans+=(char) (string.charAt(i)+32);
+    }
+    else
+    ans+=string.charAt(i);
+
+}
+return ans;
 }
 }
