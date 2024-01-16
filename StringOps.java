@@ -27,10 +27,13 @@ public class StringOps {
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
         System.out.println(camelCase(" tWo    wordS"));
-        System.out.println(camelCase("HELLO world"));
+        System.out.println(camelCase("Hello World"));
         System.out.println(camelCase(  " Intro to coMPUter sCIEncE "));
         System.out.println(camelCase("world"));
-        System.out.println(camelCase(" tWo    wordS"));
+            System.out.println(allIndexOf ("Hello world",'l'));
+        for (int i = 0; i < args.length; i++) {
+            
+        }
 
 
 
@@ -101,9 +104,20 @@ public class StringOps {
         }
 
     public static int[] allIndexOf (String string, char chr) {
-        // Write your code here:
-        return new int[1];
-    }
+        chr='l';
+        string="Hello world";
+        int index=0;
+        int charappears =counterChar(string,chr);
+        int [] allIndexOfString=new int[charappears];
+        for (int i = 0; i < string.length(); i++) {
+            if(string.charAt(i)==chr){
+                allIndexOfString[index]=i;
+                index++;
+            }
+        }
+        return allIndexOfString;
+        }
+
 
 
     public static String Makescapitalletters(String string){
@@ -125,5 +139,15 @@ public class StringOps {
 
 static public boolean ifTheFirstCap(String ans){
     return (  ans.charAt(0) < 'a');
+}
+
+static public int counterChar(String ans,char letters){
+    int counter=0;
+    for (int i = 0; i < ans.length(); i++) {
+        if(letters==ans.charAt(i)){
+            counter++;
+        }
+    }
+    return counter;
 }
 }
