@@ -104,8 +104,6 @@ public class StringOps {
         }
 
     public static int[] allIndexOf (String string, char chr) {
-        chr='l';
-        string="Hello world";
         int index=0;
         int charappears =counterChar(string,chr);
         int [] allIndexOfString=new int[charappears];
