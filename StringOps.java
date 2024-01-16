@@ -26,7 +26,7 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        System.out.println(capVowelsLowRest("vowels are fun"));
+        System.out.println(capVowelsLowRest("One two tHRee world"));
         
     }
 
@@ -38,7 +38,8 @@ public class StringOps {
             if (currentChar==' ') {
                 ans+=currentChar;
             }
-             else if (currentChar==' ' && currentChar+1< 'a' ||  currentChar+1< 'a'){
+            
+             else if (currentChar==' ' && currentChar+1< 'a'){
                 ans+=(char) (currentChar + 32);
                 flip =false;
             } else if (currentChar == 'a' || currentChar == 'e' || currentChar == 'i' || currentChar == 'o' || currentChar == 'u') {
