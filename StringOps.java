@@ -26,7 +26,12 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
+        System.out.println(capVowelsLowRest("Hello World"));
         System.out.println(capVowelsLowRest("One two tHRee world"));
+        System.out.println(capVowelsLowRest(  "vowels are fun"));
+        System.out.println(capVowelsLowRest("intro"));
+        System.out.println(capVowelsLowRest("yellow"));
+
         
     }
 
@@ -35,14 +40,13 @@ public class StringOps {
         for (int i = 0; i < string.length(); i++) {
              char currentChar = string.charAt(i);
              boolean flip =true;
-            if (currentChar==' ') {
+            if (currentChar==' ' || "AEIOU".indexOf(string.charAt(0))!=-1 ) {
                 ans+=currentChar;
             }
-            
-             else if (currentChar==' ' && currentChar+1< 'a'){
+             else if (currentChar==' ' && currentChar+1< 'a' ||  currentChar+1< 'a'){
                 ans+=(char) (currentChar + 32);
                 flip =false;
-            } else if (currentChar == 'a' || currentChar == 'e' || currentChar == 'i' || currentChar == 'o' || currentChar == 'u') {
+            } else if ("aeiou".indexOf(currentChar) != -1) {
                 ans += (char) (currentChar - 32);
                 flip =false;
             }else if (currentChar==' ') {
