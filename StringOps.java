@@ -26,10 +26,11 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
+        System.out.println(camelCase(" tWo    wordS"));
         System.out.println(camelCase("HELLO world"));
         System.out.println(camelCase(  " Intro to coMPUter sCIEncE "));
         System.out.println(camelCase("world"));
-    //    System.out.println(capVowelsLowRest("Hello WOrld"));
+        System.out.println(camelCase(" tWo    wordS"));
 
 
 
@@ -68,23 +69,23 @@ public class StringOps {
         
             while (i < string.length()) {
                 int firstSpace = string.indexOf(' ', i);
-                String helpr;
+                String helper;
                 if (firstSpace == -1) {
-                    helpr = string.substring(i);
+                    helper = string.substring(i);
                 } else {
-                    helpr = string.substring(i, firstSpace);
+                    helper = string.substring(i, firstSpace);
                 }
                 conter++;
-                for (int j = 0; j < helpr.length(); j++) {
-                    flip =ifTheFirstCap(helpr);
+                for (int j = 0; j < helper.length(); j++) {
+                    flip =ifTheFirstCap(helper);
                     boolean yep =true;
-                    char currentChar = helpr.charAt(j);
-                    if ((flip && currentChar <'a')){  // דואג למילה הראשונה
+                    char currentChar = helper.charAt(j);
+                    if ((yep && currentChar <'a')){  // דואג למילה הראשונה
                         ans+=(char) (currentChar+32);
-                        flip =false;
-                } else if (!flip) {
-                    helpr=Makescapitalletters(helpr);
-                    ans+=helpr;
+                        yep=false;
+                } else if (!flip && i>1) {
+                    helper=Makescapitalletters(helper);
+                    ans+=helper;
                     break;
 
                 } else if (yep){
@@ -93,7 +94,7 @@ public class StringOps {
                     }    
                     }
             
-                i += helpr.length() + 1;
+                i += helper.length() + 1;
             }
         
             return ans;
