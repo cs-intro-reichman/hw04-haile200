@@ -26,7 +26,7 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        System.out.println(camelCasew("Hello World"));
+        System.out.println(camelCase("Hello World"));
         System.out.println(camelCase(  " Intro to coMPUter sCIEncE "));
         System.out.println(camelCase("world"));
             System.out.println(camelCase ( " tWo    wordS"));
