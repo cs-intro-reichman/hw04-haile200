@@ -24,7 +24,7 @@ public class ArrayOps {
         }
         return finder;
     }
-     /// 6  9   4   7   3   4  (7)
+    
     public static int secondMaxValue(int [] array) {
         int couterMax =0;
         int finderMax =finderMax(array);
@@ -66,7 +66,7 @@ public class ArrayOps {
                 } else {
                     if (i < array1.length && array2[i] == array1[j]) {
                         counter++;
-                        break; // Break to avoid counting the same element multiple times
+                        break; 
                     }
                 }
             }
@@ -107,19 +107,5 @@ public class ArrayOps {
         }
             return max;
     }
-    public static int theShorter (int [] array,int [] array2){
-       if (array.length < array2.length){
-            return array.length;
-       }
-            return array2.length;
-    }
-
-
-    public static int theBigetLength (int [] array,int [] array2){
-       if (array.length > array2.length){
-            return array.length;
-       }
-            return array2.length;   
-}
 }
     

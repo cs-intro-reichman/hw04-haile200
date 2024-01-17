@@ -26,7 +26,7 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        System.out.println(camelCase("Hello World"));
+        System.out.println(camelCasew("Hello World"));
         System.out.println(camelCase(  " Intro to coMPUter sCIEncE "));
         System.out.println(camelCase("world"));
             System.out.println(camelCase ( " tWo    wordS"));
@@ -44,14 +44,14 @@ public class StringOps {
         for (int i = 0; i < string.length(); i++) {
              char currentChar = string.charAt(i);
              boolean flip =true;
-             if  (currentChar==' ' || "AEIOU".indexOf(currentChar)!=-1 ) { // אם האות הראשונה גדולה וגרונית אז זה נשאר
+             if  (currentChar==' ' || "AEIOU".indexOf(currentChar)!=-1 ) { // If the letter is Vowels then it remains
                 ans+=currentChar;
             }
-             else if (currentChar==' ' && currentChar+1< 'a' ||  currentChar+1< 'a'){  // מקטין אותיות 
+             else if (currentChar==' ' && currentChar+1< 'a' ||  currentChar+1< 'a'){  // Reduces letters  
                 ans+=(char) (currentChar + 32);
                 flip =false;
-            } else if ("aeiou".indexOf(currentChar) != -1) {  // הופך אותיות גרוניות לגדלות 
-                ans += (char) (currentChar - 32);
+            } else if ("aeiou".indexOf(currentChar) != -1) {  //If the letter is lowercase and Vowels is makes it
+                ans += (char) (currentChar - 32);            //      Uppercase letter
                 flip =false;
             }else if (currentChar==' ') {
                 ans+=currentChar;
